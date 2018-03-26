@@ -240,7 +240,7 @@ class GameController:
                     xrandom = int(random.uniform(0, self.blank_area[2] - self.blank_area[0]))
                     yrandom = int(random.uniform(0, self.blank_area[3] - self.blank_area[1]))
                     self.move_curpos(self.blank_area[0] + xrandom, self.blank_area[1] + yrandom)
-                    self.click_left_cur(int(random.uniform(1, 3)))
+                    self.click_left_cur(int(random.uniform(2, 4)))
             elif self._running == 0:
                 break
             time.sleep(0.5)
@@ -258,7 +258,7 @@ class GameController:
                     yrandom = int(random.uniform(0, self.blank_area[3] - self.blank_area[1]))
                     self.move_curpos(self.blank_area[0] + xrandom, self.blank_area[1] + yrandom)
                     time.sleep(random.random())
-                    self.click_left_cur(int(random.uniform(1, 3)))
+                    self.click_left_cur(int(random.uniform(2, 4)))
             elif self._running == 0:
                 break
             time.sleep(0.5)
