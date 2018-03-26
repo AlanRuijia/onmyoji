@@ -118,6 +118,7 @@ class GameController:
         for o in range(counts):
             win32api.mouse_event(win32con.MOUSEEVENTF_LEFTUP | win32con.MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0)
             time.sleep(0.1)
+            time.sleep(0.1*random.random())
 
     @staticmethod
     def click_right_cur():
@@ -125,7 +126,9 @@ class GameController:
 
     @staticmethod
     def move_curpos(x, y):
+        time.sleep(0.5*random.random())
         windll.user32.SetCursorPos(x, y)
+        time.sleep(0.5*random.random())
 
     @staticmethod
     def get_curpos():
@@ -166,6 +169,7 @@ class GameController:
                     if self.hamming(self.get_hash(catch_img), self.form_team_hash, 30):
                         break
                     time.sleep(0.5)
+                    time.sleep(0.3*random.random())
                 elif self._running == 0:
                     return
             # 检测队伍人数，符合预期再点开始战斗
@@ -182,6 +186,7 @@ class GameController:
                     if num == fight_num:
                         break
                     time.sleep(0.5)
+                    time.sleep(0.3*random.random())
                 elif self._running == 0:
                     return
             # 移动到开始战斗按钮并点击 每次移动在按钮范围内加入随机坐标位移
@@ -189,6 +194,7 @@ class GameController:
             yrandom = int(random.uniform(0, self.fght_btn[3] - self.fght_btn[1]))
             self.move_curpos(self.fght_btn[0] + xrandom, self.fght_btn[1] + yrandom)
             time.sleep(0.5)
+            time.sleep(0.3*random.random())
             self.click_left_cur()
         elif mode == '乘客':
             return
@@ -251,10 +257,12 @@ class GameController:
                     xrandom = int(random.uniform(0, self.blank_area[2] - self.blank_area[0]))
                     yrandom = int(random.uniform(0, self.blank_area[3] - self.blank_area[1]))
                     self.move_curpos(self.blank_area[0] + xrandom, self.blank_area[1] + yrandom)
+                    time.sleep(random.random())
                     self.click_left_cur(int(random.uniform(1, 3)))
             elif self._running == 0:
                 break
             time.sleep(0.5)
+            time.sleep(0.3*random.random())
 
     def check_offer(self, offer_mode, queue):
         while True:
